@@ -1,113 +1,157 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import Input from '@/components/Input';
+import React, { useState } from 'react';
+import PrimaryButton from '@/components/PrimaryButton';
+import SecondayButton from '@/components/SecondaryButton';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/pages/index.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+const initial_states = {
+  search: ''
 }
+
+const Root = () => {
+
+  const [params, setParams] = useState(initial_states)
+
+  const handleChange = (e) => {
+    let { name, value } = e.target
+    setParams({
+      ...params,
+      [name]: value
+    })
+  }
+
+  return (
+    <div>
+
+      <div className='flex flex-col lg:py-6 py-4 w-full text-center'>
+
+        <h2 className='font-sans lg:text-lg md:text-base text-sm font-bold text-[#1a1a1a] uppercase tracking-wider'>Simple Recipes made for
+          <br className='lg:hidden block' />
+          <span className='text-[#743060] font-serif font-light lowercase tracking-normal'> real. actual. everyday life</span></h2>
+
+      </div>
+
+      <div className='flex flex-col w-full bg-[#f0f0f0] lg:py-10 py-8 lg:px-0 md:px-6 px-4 lg:gap-10 gap-8'>
+
+        <div className='grid lg:grid-cols-4 lg:gap-5 gap-8 grid-cols-1 lg:w-10/12 w-full mx-auto'>
+
+          {
+            React.Children.toArray(
+              [...Array(4)].map(item => (
+                <div className='flex flex-col w-full lg:h-96 h-72 relative bg-slate-400 shadow hover:opacity-70 cursor-pointer'>
+
+                  <div className='w-full h-10 absolute -bottom-5 left-0 flex items-center justify-center'>
+
+                    <span className='text-white py-2 px-5 w-fit bg-[#EBD654] uppercase text-sm tracking-wider'>Name</span>
+                  </div>
+                </div>
+              ))
+            )
+          }
+
+        </div>
+
+        <div className='flex flex-row md:gap-6 gap-5 lg:w-10/12 w-full mx-auto overflow-x-auto lg:pb-6 pb-4'>
+
+          {
+            React.Children.toArray(
+              [...Array(10)].map(item => (
+                <div className='flex flex-col gap-2 text-center items-center justify-center'>
+
+                  <div className='lg:w-28 w-24 lg:h-28 h-24 rounded-full bg-slate-400' />
+
+                  <p className='lg:text-base text-sm uppercase text-[#1a1a1a] font-bold tracking-wider'>Category</p>
+
+                </div>
+              ))
+            )
+          }
+
+
+        </div>
+
+        <div className='flex lg:flex-row flex-col lg:gap-5 gap-4 items-center justify-center lg:w-10/12 w-full mx-auto'>
+          <Input
+            name="search"
+            value={params?.search}
+            handleChange={handleChange}
+            label="Search our recipes"
+            width="lg:w-4/12 w-full"
+          />
+          <PrimaryButton label="View All Recipes" width={"lg:w-fit w-full"} />
+        </div>
+
+      </div>
+
+      <div className='flex flex-col lg:w-10/12 w-full mx-auto lg:px-0 md:px-6 px-4'>
+
+        <div className='flex lg:flex-row flex-col w-full lg:gap-6 gap-4 lg:py-6 py-4'>
+
+          <div className='lg:w-8/12 w-full flex flex-col'>
+
+            <div className='lg:pb-6 pb-4'>
+              <h2 className='lg:text-lg md:text-base text-sm text-[#743060] uppercase font-bold tracking-wider'>The Latest & Greatest</h2>
+            </div>
+
+            {
+              React.Children.toArray(
+                [...Array(4)].map(item => (
+                  <div className='flex md:flex-row flex-col items-start lg:gap-6 gap-4 lg:py-6 py-4 border-b border-[#cccccc]'>
+
+                    <div className='md:w-fit w-full'>
+                      <div className='md:w-52 w-full h-36 md:h-52 bg-slate-400' />
+                    </div>
+
+                    <div className='flex flex-col h-52 justify-between'>
+
+                      <p className='lg:text-sm md:text-sm text-xs text-[#4d4d4d] uppercase font-semibold tracking-wider'>March 11, 2025</p>
+
+                      <p className='lg:text-2xl md:text-xl text-base font-serif font-semibold text-[#1a1a1a]'>Whipped Feta Spread</p>
+
+                      <p className='lg:text-base md:text-base text-sm text-[#1a1a1a]'>Just like the one from Trader Joe’s! I love this topped on bowls, as a dip for naan or flatbread, or in a sandwich. It’s SO good.</p>
+
+                      <SecondayButton label="Continue Reading" />
+
+                    </div>
+
+                  </div>
+                ))
+              )
+            }
+
+            <div className='lg:pt-6 pt-4 lg:w-fit w-full lg:mx-auto'>
+              <PrimaryButton label="View More Recent Posts" width="lg:w-fit mx-auto w-full" />
+            </div>
+
+          </div>
+
+          <div className='lg:w-4/12 w-full flex flex-col lg:gap-6 gap-4'>
+
+
+            <div className='grid grid-cols-2 gap-1'>
+
+              <div className='w-full h-32 lg:h-48 bg-slate-400' />
+              <div className='w-full h-32 lg:h-48 bg-slate-400' />
+
+            </div>
+
+            <div className='w-full h-32 lg:h-48 bg-slate-400' />
+
+            <div className='grid grid-cols-2 gap-1'>
+
+              <div className='w-full h-32 lg:h-48 bg-slate-400' />
+              <div className='w-full h-32 lg:h-48 bg-slate-400' />
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  )
+}
+
+export default Root
