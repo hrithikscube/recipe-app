@@ -89,7 +89,7 @@ const Root = () => {
 
       <div className='flex flex-col lg:w-10/12 w-full mx-auto lg:px-0 md:px-6 px-4'>
 
-        <div className='flex lg:flex-row flex-col w-full lg:gap-6 gap-4 lg:py-6 py-4'>
+        <div className='flex lg:flex-row flex-col-reverse w-full lg:gap-6 gap-4 lg:py-6 py-4'>
 
           <div className='lg:w-8/12 w-full flex flex-col'>
 
@@ -154,6 +154,22 @@ const Root = () => {
         </div>
 
       </div>
+
+      <div className='flex flex-col lg:w-10/12 w-full mx-auto lg:px-0 md:px-6 px-4'>
+
+        <div className='grid lg:grid-cols-3 lg:gap-4 gap-2 w-full'>
+
+          {
+            [...Array(3)].map(item => (
+              <div className='flex flex-col bg-slate-200 lg:h-[450px] h-96' />
+            ))
+          }
+        </div>
+
+      </div>
+
+      <div className='w-full h-40 bg-[#743060]' />
+
 
     </div>
   )

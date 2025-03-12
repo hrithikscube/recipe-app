@@ -44,7 +44,7 @@ const Header = () => {
 
     return (
         <div>
-            <div className='py-3 lg:px-10 select-none md:px-6 px-4 bg-violet-900 font-sans w-full lg:text-base text-sm text-white text-center cursor-pointer'>
+            <div className='py-2 lg:px-10 select-none md:px-6 px-4 bg-[#743060] font-sans w-full text-sm text-white text-center cursor-pointer'>
                 Click here to Sign in
             </div>
 
@@ -54,7 +54,7 @@ const Header = () => {
                     onClick={() => {
                         Router.push('/')
                     }}
-                    className='text-[1.2rem] lg:text-[2rem] font-serif text-[#743060] cursor-pointer font-light'>pinch <span className='text-[#4d4d4d]'>of</span> yum</button>
+                    className='text-[1.2rem] lg:text-[2rem] font-serif text-[#743060] cursor-pointer font-light'>pinch<span className='text-[#4d4d4d]'> of </span>yum</button>
 
                 <div className='lg:flex hidden flex-row items-center lg:gap-6'>
                     {headerLinks?.map(item => (
