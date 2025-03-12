@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import Logo from './Logo';
 
 const headerLinks = [
     {
@@ -50,11 +51,7 @@ const Header = () => {
 
             <div className='flex flex-row py-3 w-full items-center justify-between lg:px-10 md:px-6 px-4 border-b border-[#cccccc]'>
 
-                <button
-                    onClick={() => {
-                        Router.push('/')
-                    }}
-                    className='text-[1.2rem] lg:text-[2rem] font-serif text-[#743060] cursor-pointer font-light'>pinch<span className='text-[#4d4d4d]'> of </span>yum</button>
+                <Logo />
 
                 <div className='lg:flex hidden flex-row items-center lg:gap-6'>
                     {headerLinks?.map(item => (
