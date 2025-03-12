@@ -46,7 +46,7 @@ const Root = () => {
 
                   <div className='w-full h-10 absolute -bottom-5 left-0 flex items-center justify-center'>
 
-                    <span className='text-white py-2 px-5 w-fit bg-[#EBD654] uppercase text-sm tracking-wider'>Name</span>
+                    <span className='text-white py-2 px-5 w-fit bg-amber-400 uppercase text-sm tracking-wider'>Name</span>
                   </div>
                 </div>
               ))

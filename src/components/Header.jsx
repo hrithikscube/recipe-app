@@ -45,11 +45,11 @@ const Header = () => {
 
     return (
         <div>
-            <div className='py-2 lg:px-10 select-none md:px-6 px-4 bg-[#743060] font-sans w-full text-sm text-white text-center cursor-pointer'>
+            <div className='py-2 lg:px-10 select-none md:px-6 px-4 bg-[#743060] font-sans w-full text-sm text-white text-center cursor-pointer uppercase font-bold tracking-wider'>
                 Click here to Sign in
             </div>
 
-            <div className='flex flex-row py-3 w-full items-center justify-between lg:px-10 md:px-6 px-4 border-b border-[#cccccc]'>
+            <div className='flex flex-row py-8 w-full items-center justify-between lg:px-10 md:px-6 px-4 border-b border-[#cccccc]'>
 
                 <Logo />
 
