@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Input from '@/components/Input';
 import React, { useState } from 'react';
 import PrimaryButton from '@/components/PrimaryButton';
@@ -21,6 +22,10 @@ const Root = () => {
 
   return (
     <div>
+
+      <Head>
+        <title>Pinch of Yum - A food blog with simple and tasty recipes</title>
+      </Head>
 
       <div className='flex flex-col lg:py-6 py-4 w-full text-center'>
 
