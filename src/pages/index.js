@@ -3,12 +3,12 @@ import Input from '@/components/Input';
 import React, { useState } from 'react';
 import PrimaryButton from '@/components/PrimaryButton';
 import SecondayButton from '@/components/SecondaryButton';
-import TernaryButton from '@/components/TernaryButton';
 
 const initial_states = {
   search: '',
   first_name: '',
-  email: ''
+  email: '',
+  category: 0
 }
 
 const Root = () => {
@@ -22,6 +22,7 @@ const Root = () => {
       [name]: value
     })
   }
+
 
 
   return (
@@ -159,7 +160,7 @@ const Root = () => {
 
       </div>
 
-      <div className='flex flex-col lg:w-10/12 w-full mx-auto lg:px-0 md:px-6 px-4'>
+      <div className='flex flex-col lg:w-10/12 w-full mx-auto lg:px-0 md:px-6 px-4 lg:pb-12 pb-10'>
 
         <div className='grid lg:grid-cols-3 lg:gap-4 gap-2 w-full'>
 
@@ -211,6 +212,51 @@ const Root = () => {
         </div>
 
       </div> */}
+
+      <div className='w-full bg-[#f0f0f0] lg:py-12 py-10 lg:px-0 md:px-6 px-4'>
+
+        <div className='lg:w-10/12 mx-auto flex flex-col lg:gap-6 gap-4'>
+
+          <div className='flex lg:flex-row flex-col lg:items-center gap-1 lg:justify-center lg:w-fit w-full mx-auto'>
+
+            {
+              React.Children.toArray(
+                [...Array(3)]?.map((item, index) => (
+                  <button
+                    onClick={() => {
+                      setParams({
+                        ...params,
+                        category: index
+                      })
+                    }}
+                    className={`${params?.category === index ? 'bg-[#743060] text-white' : 'bg-[#cccccc] lg:hover:bg-[#743060] lg:hover:text-white text-[#1a1a1a]'} py-3 group text-sm cursor-pointer px-4 uppercase font-bold relative`}>
+                    Some Category {index + 1}
+
+                    <div className={`${params?.category === index ? 'opacity-100' : 'group-hover:opacity-100 opacity-0'} absolute -bottom-2 left-0 lg:flex hidden items-center justify-center w-full`}>
+                      <div className='w-4 h-5 bg-[#743060] -rotate-45' />
+                    </div>
+                  </button>
+                ))
+              )
+            }
+
+          </div>
+
+          <div className='grid lg:grid-cols-4 lg:gap-4 gap-2 w-full'>
+
+            {
+              [...Array(4)]?.map(item => (
+                <div className='flex flex-col w-full h-96 bg-slate-200 relative'>
+
+                </div>
+              ))
+            }
+          </div>
+
+
+        </div>
+
+      </div>
 
 
     </div>
