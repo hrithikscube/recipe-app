@@ -3,9 +3,12 @@ import Input from '@/components/Input';
 import React, { useState } from 'react';
 import PrimaryButton from '@/components/PrimaryButton';
 import SecondayButton from '@/components/SecondaryButton';
+import TernaryButton from '@/components/TernaryButton';
 
 const initial_states = {
-  search: ''
+  search: '',
+  first_name: '',
+  email: ''
 }
 
 const Root = () => {
@@ -19,6 +22,7 @@ const Root = () => {
       [name]: value
     })
   }
+
 
   return (
     <div>
@@ -168,7 +172,45 @@ const Root = () => {
 
       </div>
 
-      <div className='w-full h-40 bg-[#743060]' />
+      {/* <div className='w-full bg-[#743060] lg:py-10 py-8 flex flex-col lg:items-center lg:justify-center lg:px-0 md:px-6 px-4'>
+
+        <div className='lg:w-10/12 mx-auto w-full flex lg:flex-row flex-col items-center justify-between'>
+
+          <h2 className='lg:text-base text-sm uppercase text-white font-semibold tracking-wider'>Follow us</h2>
+
+
+          <div className='flex flex-col lg:w-6/12 w-full gap-2 text-center'>
+
+            <h2 className='lg:text-base text-sm uppercase text-white font-semibold tracking-wider'>Sign up for Email Updates</h2>
+
+            <div className='flex lg:flex-row flex-col gap-2 lg:w-fit w-full mx-auto'>
+
+              <Input
+                label="First Name"
+                name="first_name"
+                value={params?.first_name}
+                handleChange={handleChange}
+                width="lg:w-fit w-full"
+              />
+
+              <Input
+                label="Email"
+                name="email"
+                value={params?.email}
+                handleChange={handleChange}
+                width="lg:w-fit w-full"
+              />
+
+              <TernaryButton label="Go"
+                width="lg:w-fit w-fit ml-auto"
+              />
+
+            </div>
+          </div>
+
+        </div>
+
+      </div> */}
 
 
     </div>
